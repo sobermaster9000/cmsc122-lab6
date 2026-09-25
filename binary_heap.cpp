@@ -1,7 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class BinaryHeap {
+class MinHeap {
+    private:
+
+    public:
+
+};
+
+class MaxHeap {
     private:
 
     public:
