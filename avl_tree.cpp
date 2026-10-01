@@ -204,16 +204,22 @@ class AVLTree {
 
         // search algorithm for tree
         bool search(AVLNode<T>* root, T val){
-            if (root->val > val) return search(root->right, val);
-            else if (root->val < val) return search(root->left, val);
-            else if (root->val == val) {
-                cout << val << " is in the tree."<<endl;
-                return true;
-            }
-            else {
+            if (root == nullptr) {
                 cout << val << " is not in the tree."<<endl;
                 return false;
             }
+
+            if (root->val == val) {
+                cout << val << " is in the tree."<<endl;
+                return true;
+            }
+
+            if (val > root->val)
+                return search(root->right, val);
+            else 
+                return search(root->left, val);
+
+            return false;
         }
 
         // -- TRAVERSAL FUNCTIONS
@@ -453,6 +459,42 @@ int main() {
     deletion_test4->printPreorder();
     deletion_test4->printInorder();
 
+    cout << endl;
+
+    // -- MISCELLANEOUS TESTS (traversals and searching) --
+    AVLTree<int>* sample_tree1 = new AVLTree<int>();
+
+    cout << "Traversal and search tests" << endl;
+
+    sample_tree1->insert_val(10);
+    sample_tree1->insert_val(20);
+    sample_tree1->insert_val(30);
+    sample_tree1->insert_val(40);
+    sample_tree1->insert_val(50);
+    sample_tree1->insert_val(25);
+
+    // traversal tests
+    sample_tree1->printPreorder();
+    sample_tree1->printInorder();
+    sample_tree1->printPostorder();
+    sample_tree1->printBFS();
+
+    cout << endl;
+
+    // searching (existing values)
+    sample_tree1->searchValue(30);
+    sample_tree1->searchValue(20);
+    sample_tree1->searchValue(40);
+    sample_tree1->searchValue(10);
+    sample_tree1->searchValue(25);
+    sample_tree1->searchValue(50);
+
+    // searching (non-existing values)
+    sample_tree1->searchValue(5);
+    sample_tree1->searchValue(35);
+    sample_tree1->searchValue(45);
+    sample_tree1->searchValue(100);
+ 
     cout << endl;
 
     return 0;
