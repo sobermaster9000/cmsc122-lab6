@@ -58,7 +58,7 @@ class BaseHeap {
         size_t idx = 0;
         while (idx < heapSize) {
             size_t leftIdx = 2 * idx + 1; // get index of left child
-            size_t rightIdx = 2 * idx + 2; // get index of left child
+            size_t rightIdx = 2 * idx + 2; // get index of right child
             
             // case a: only has a left child
             if (leftIdx < heapSize && rightIdx >= heapSize){
@@ -169,6 +169,7 @@ int main() {
     cout << maxheap.pop() << endl; // 7
     cout << maxheap.pop() << endl; // 3
     cout << maxheap.pop() << endl; // 1
+    cout << maxheap.pop() << endl; // 0
     // maxheap is now empty
     try {
 	cout << maxheap.pop() << endl;
