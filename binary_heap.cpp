@@ -139,7 +139,7 @@ int main() {
     cout << "--- For MaxHeap ---" << endl;
 
     cout << "Initializing MaxHeap with passed max size of 5..." << endl;
-    MaxHeap<int> maxheap(4);
+    MaxHeap<int> maxheap(5);
     cout << "Inserting 1..." << endl;
     maxheap.push(1);
     cout << "Inserting 3..." << endl;
