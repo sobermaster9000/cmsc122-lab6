@@ -16,9 +16,24 @@ class MinHeap {
 	return heapSize;
     }
 
-    // todo: implement push function
     void push(int x) {
+    if (heapSize >= 100) {
+        throw runtime_error("Cannot push element, heap at max capacity");
+    }
 
+    // insert at the end
+    int idx = heapSize;
+    heap[heapSize++] = x;
+
+    // heapify up
+    if (idx == 0) return;                               // prevent root element from being heapify'd up
+    int parentIdx = (idx % 2 ? idx / 2 : idx / 2 - 1); // get index of parent
+    while (idx > 0 && heap[idx] < heap[parentIdx]) {
+        swap(heap[idx], heap[parentIdx]);               // swap while current element is less than parent
+        idx = parentIdx;                                // update current index to parent of index
+        if (idx == 0) break;                            // stop heapify when the root is reached
+        parentIdx = (idx % 2 ? idx / 2 : idx / 2 - 1);      // get index of parent again
+    }
     }
 
     // todo: implement pop function
