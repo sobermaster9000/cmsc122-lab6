@@ -138,7 +138,7 @@ int main() {
 
     cout << "--- For MaxHeap ---" << endl;
 
-    cout << "Initializing MaxHeap with passed max size of 4..." << endl;
+    cout << "Initializing MaxHeap with passed max size of 5..." << endl;
     MaxHeap<int> maxheap(4);
     cout << "Inserting 1..." << endl;
     maxheap.push(1);
@@ -148,10 +148,12 @@ int main() {
     maxheap.push(8);
     cout << "Inserting 7..." << endl;
     maxheap.push(7);
+    cout << "Inserting 0..." << endl;
+    maxheap.push(0);
     // exceeds max capacity
     try {
-	cout << "Inserting 0..." << endl;
-	maxheap.push(0);
+	cout << "Inserting 10..." << endl;
+	maxheap.push(10);
     } catch(exception& e) {
 	cout << e.what() << endl;
     }
