@@ -92,12 +92,14 @@ class BaseHeap {
 template<typename T, typename Compare = less<T>>
 class MinHeap : public BaseHeap<T, Compare> {
     public: 
+    // set default max size to 2^10
     MinHeap(size_t maxSize = (1 << 10)): BaseHeap<T, Compare>(maxSize) {}
 };
 
 template<typename T, typename Compare = greater<T>>
 class MaxHeap : public BaseHeap<T, Compare> {
     public: 
+    // set default max size to 2^10
     MaxHeap(size_t maxSize = (1 << 10)): BaseHeap<T, Compare>(maxSize) {}
 };
 
